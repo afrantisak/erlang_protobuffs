@@ -820,8 +820,8 @@ generate_field_definitions([{Name, _, Default} | Tail], Acc) ->
 atomize([String]) when is_list(String) ->
     atomize(String);
 % handle ["symbol", "package_symbol"]
-atomize([String|[_Rest]]) when is_list(String) ->
-    atomize(String);
+atomize([String|[Rest]]) when is_list(String) ->
+    atomize(Rest);
 atomize(String) ->
     list_to_atom(string:to_lower(String)).
 
